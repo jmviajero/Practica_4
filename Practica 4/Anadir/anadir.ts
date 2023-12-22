@@ -8,14 +8,14 @@ export const añadir= async(Req:Request, Res:Response)=>{
     try {
         const { Dimensiones, camuflaje, regeneracion, año } = Req.body;
 
-        // Verifica que las dimensiones proporcionadas existan en la base de datos
-        const exist = await DimensionModel.find({ _id: { $in: Dimensiones } });
-        if (!exist) {
+        
+        const existe = await DimensionModel.find({ _id: { $in: Dimensiones } });
+        if (!existe) {
             Res.status(404).send("No se han encontrado estas dimensiones en la base de datos")
             return;
         }
 
-        // Crea una nueva TARDIS
+        
         const newTardis = new TARDISmodel({
             Dimensiones,
             camuflaje,
@@ -23,7 +23,7 @@ export const añadir= async(Req:Request, Res:Response)=>{
             año,
         });
 
-        // Guarda la nueva TARDIS en la base de datos
+     
         const savedTardis = await newTardis.save();
 
         Res.status(201).send(savedTardis);
