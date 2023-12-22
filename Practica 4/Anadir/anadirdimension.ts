@@ -19,9 +19,9 @@ export const añadirdimension = async(Req:Request, Res:Response)=>{
         });
 
      
-        const savedDimension = await newDimension.save();
+        const Dim = await newDimension.save();
 
-        Res.status(201).send(savedDimension);
+        Res.status(201).send(Dim);
     } catch (error) {
         console.error(error);
         Res.status(500).send(error);
