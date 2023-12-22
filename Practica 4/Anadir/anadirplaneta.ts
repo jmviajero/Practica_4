@@ -6,7 +6,7 @@ export const añadirplaneta = async(Req:Request, Res:Response)=>{
     try {
         const { Nombre, Personas } = Req.body;
 
-        // Verifica que los planetas proporcionados existan en la base de datos
+        
         const existen = await PersonModel.find({ _id: { $in: Personas } });
         if (!existen) {
             return Res.status(400).send("No existen id de las personas introducidas ");
@@ -19,9 +19,9 @@ export const añadirplaneta = async(Req:Request, Res:Response)=>{
         });
 
        
-        const savedPlaneta = await newPlaneta.save();
+        const Pla = await newPlaneta.save();
 
-        Res.status(201).send(savedPlaneta);
+        Res.status(201).send(Pla);
     } catch (error) {
         console.error(error);
         Res.status(500).send(error);
