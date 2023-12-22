@@ -24,9 +24,9 @@ export const añadir= async(Req:Request, Res:Response)=>{
         });
 
      
-        const savedTardis = await newTardis.save();
+        const saved = await newTardis.save();
 
-        Res.status(201).send(savedTardis);
+        Res.status(201).send(saved);
     } catch (error) {
         console.error(error);
         Res.status(500).send(error);
