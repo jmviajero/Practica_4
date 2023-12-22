@@ -59,7 +59,7 @@ export const actualizar= async (req:Request, res:Response)=>{
             res.send(201).send(actualizar);
         }
 
-        if (!exist || !pla || !per || !nombre) {
+        if (!existe || !pla || !per || !nombre) {
             res.status(404).send("No se ha encontardo este identificador en la base de datos")
         }
     } catch (error) {
