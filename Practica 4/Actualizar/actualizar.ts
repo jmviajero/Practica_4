@@ -6,9 +6,9 @@ export const actualizar= async (req:Request, res:Response)=>{
     try {
         const tardisId = req.params.id;
 
-        const exist = await TARDISmodel.findById(tardisId).exec()
+        const existe = await TARDISmodel.findById(tardisId).exec()
 
-        if (exist) {
+        if (existe) {
             const { Dimensiones, camuflaje, regeneracion, año } = req.body;
 
             const actualizar= await TARDISmodel.findOneAndUpdate({_id: tardisId},{
