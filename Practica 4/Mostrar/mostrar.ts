@@ -20,6 +20,6 @@ export const mostrar = async(req:Request, res:Response)=>{
         res.status(200).json(encontrar);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ "No" });
+        Res.status(500).send(error);
     }
 }
