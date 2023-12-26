@@ -14,7 +14,7 @@ export const mostrar = async(req:Request, res:Response)=>{
         
 
         if (!encontrar) {
-            return res.status(404).json({ "TARDIS no encontrada" });
+            return res.status(404).json( "TARDIS no encontrada" );
         }
 
         res.status(200).json(encontrar);
